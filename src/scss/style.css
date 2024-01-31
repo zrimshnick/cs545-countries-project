@@ -1,0 +1,14 @@
+html,
+body {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-size: 62.5%;
+  color: black;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 500;
+}
+
+.welcome {
+  font-size: 5rem;
+}/*# sourceMappingURL=style.css.map */
