@@ -63,7 +63,7 @@
   background-position: 0%;
   background-repeat: no-repeat;
   z-index: 1;
-  animation: slideBackground 30s linear infinite;
+  animation: slideBackground 45s linear infinite;
   overflow: hidden;
 }
 
@@ -91,12 +91,13 @@
   width: 300px;
   height: 300px;
   background: url("/src/images/worldBackground.png");
-  background-color: #212121;
+  //background-color: #212121;
+  background-color: rgb(28, 28, 154);
   background-size: cover;
   background-repeat: repeat-x;
   border-radius: 50%;
   box-shadow: inset 0 0 20px rgba(0, 0, 0, 1), 0 0 15px #0c0c0e;
-  animation: animateEarth 15s linear infinite;
+  animation: animateEarth 150s linear infinite;
 }
 @keyframes animateEarth {
   0% {
@@ -108,22 +109,23 @@
 }
 .earth-circle {
   transform-style: preserve-3d;
-  animation: animateText 10s linear infinite;
+  animation: animateText 15s linear infinite;
 }
 .earth-circle span {
   position: absolute;
+  width: 2.5rem;
   top: 0;
   left: 0;
-  background: white;
-  color: #35146f;
+  background: black;
+  color: whitesmoke;
   font-size: 5em;
   font-weight: bolder;
   transform-origin: center;
   transform-style: preserve-3d;
   padding: 5px 11px;
-  transform: rotateY(calc(var(--i) * calc(360deg / 27))) translateZ(200px);
-  border-top: 4px solid #35146f;
-  border-bottom: 4px solid #35146f;
+  transform: rotateY(calc(var(--i) * calc(360deg / 28))) translateZ(200px);
+  border-top: 2px solid rgb(28, 28, 154);
+  border-bottom: 2px solid rgb(28, 28, 154);
 }
 .earth-circle span::before {
   content: "";
@@ -132,7 +134,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: white;
+  background: black;
   transform: translateZ(-5px);
 }
 
