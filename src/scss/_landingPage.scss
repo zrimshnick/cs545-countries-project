@@ -1,33 +1,3 @@
-html,
-body {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-  font-size: 62.5%;
-  color: black;
-  font-family: "Open Sans", sans-serif;
-  font-weight: 500;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.title {
-  font-size: 5rem;
-}
-
-#map-container {
-  width: 100%;
-  height: 700px;
-}
-
-path {
-  fill: #ccc;
-  stroke: black;
-  stroke-width: 1;
-}
-
 #landingPage-body {
   box-sizing: border-box;
   padding: 0;
@@ -40,6 +10,10 @@ path {
   align-items: center;
   justify-content: center;
   background-color: #212121;
+  //   background-image: url("/src/images/worldBackground.png");
+  //   //overflow: hidden;
+  //   width: 100vw;
+  //   height: 100vw;
 } /* 
 #landingPage-background-wrapper {
   height: 100vh;
@@ -73,6 +47,7 @@ path {
 }
 #landingPage-background2 {
 } */
+
 #landingPage-container {
   height: 100vh;
   width: 100vw;
@@ -81,6 +56,7 @@ path {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  //background-color: red;
   background-image: url("/src/images/worldBackground2.png");
   background-size: 300vw auto;
   position: relative;
@@ -99,6 +75,7 @@ path {
     background-position: -150vw 0;
   }
 }
+
 #earth-container {
   display: flex;
   justify-content: center;
@@ -106,7 +83,6 @@ path {
   min-height: 100vh;
   transform-style: preserve-3d;
 }
-
 .earth {
   position: absolute;
   top: 50%;
@@ -119,10 +95,9 @@ path {
   background-size: cover;
   background-repeat: repeat-x;
   border-radius: 50%;
-  box-shadow: inset 0 0 20px rgb(0, 0, 0), 0 0 15px #4069ff;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 1), 0 0 15px #4069ff;
   animation: animateEarth 15s linear infinte;
 }
-
 @keyframes animateEarth {
   0% {
     background-position: 0 0;
@@ -131,6 +106,7 @@ path {
     background-position: -300px 0;
   }
 }
+
 #landingPage-welcome {
   font-size: 6rem;
   padding-bottom: 5rem;
@@ -139,50 +115,3 @@ path {
 #landingPage-sign-in-button {
   font-size: 3rem;
 }
-
-html,
-body {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-  font-size: 62.5%;
-  color: black;
-  font-family: "Open Sans", sans-serif;
-  font-weight: 500;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.welcome {
-  font-size: 5rem;
-  padding-bottom: 4rem;
-}
-
-.featuresButtonsContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-
-li {
-  text-decoration: none;
-  list-style: none;
-}
-
-.featuresButtons {
-  font-size: 2rem;
-  color: black;
-  background-color: white;
-  padding: 1rem;
-  border: 1px black solid;
-  border-radius: 1rem;
-  margin-left: 3rem;
-  margin-right: 3rem;
-}
-
-.featuresButtons:hover {
-  background-color: rgb(216, 216, 216);
-  transition: 0.2s ease-in-out;
-}/*# sourceMappingURL=style.css.map */
