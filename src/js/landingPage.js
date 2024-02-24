@@ -1,33 +1,34 @@
-/* document.addEventListener("DOMContentLoaded", function () {
-  const landingPageContainer = document.querySelector("#landingPage-container");
-  const clone = landingPageContainer.cloneNode(true);
-  landingPageContainer.parentNode.appendChild(clone);
+// app.js
 
-  let animation = null;
+const signInButton = document.getElementById("landingPage-sign-in-button");
+const userNameField = document.getElementById("landingPage-sign-in-username");
+const passwordField = document.getElementById("landingPage-sign-in-password");
+const signInEnter = document.getElementById("landingPage-sign-in-enter");
 
-  function startAnimation() {
-    if (animation) return;
-
-    animation = setInterval(() => {
-      const currentBackgroundPosition = parseInt(
-        getComputedStyle(landingPageContainer)
-          .getPropertyValue("background-position")
-          .split(" ")[0]
-      );
-      const newBackgroundPosition = currentBackgroundPosition - 1;
-      landingPageContainer.style.backgroundPosition = `${newBackgroundPosition}% 0`;
-
-      if (newBackgroundPosition <= -100) {
-        landingPageContainer.style.backgroundPosition = "0% 0";
-      }
-    }, 20);
-  }
-
-  function stopAnimation() {
-    clearInterval(animation);
-    animation = null;
-  }
-
-  startAnimation();
+document.addEventListener("DOMContentLoaded", function () {
+  signInButton.addEventListener("click", function () {
+    signInButton.classList.add("hidden");
+    userNameField.classList.remove("hidden");
+    passwordField.classList.remove("hidden");
+    signInEnter.classList.remove("hidden");
+  });
 });
- */
+
+signInEnter.addEventListener("click", () => {
+  const userNameVal = document.getElementById(
+    "landingPage-sign-in-username-field"
+  ).value;
+  const passwordVal = document.getElementById(
+    "landingPage-sign-in-password-field"
+  ).value;
+  console.log(userNameVal);
+  console.log(passwordVal);
+  if (userNameVal === "user1" && passwordVal === "pwd") {
+    window.location.href = "/src/pages/index.html";
+  } else {
+    userNameField.classList.add("passwordWrong");
+    passwordField.classList.add("passwordWrong");
+
+    //console.error;
+  }
+});

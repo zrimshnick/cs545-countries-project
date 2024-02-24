@@ -40,8 +40,24 @@
           <span style="--i: 28">&nbsp;</span>
         </div>
       </section>
-      <div id="landingPage-welcome">Learn the World</div>
-      <div id="landingPage-sign-in-button">Sign in</div>
+      <div id="landingPage-sign-in-container">
+        <div id="landingPage-sign-in-button">Sign in</div>
+        <div class="hidden" id="landingPage-sign-in-username">
+          <input
+            type="text"
+            placeholder="Username"
+            id="landingPage-sign-in-username-field"
+          />
+        </div>
+        <div class="hidden" id="landingPage-sign-in-password">
+          <input
+            type="text"
+            placeholder="Password"
+            id="landingPage-sign-in-password-field"
+          />
+        </div>
+        <div class="hidden" id="landingPage-sign-in-enter">Sign In</div>
+      </div>
     </div>
 
     <script type="module" src="/src/js/landingPage.js"></script>
