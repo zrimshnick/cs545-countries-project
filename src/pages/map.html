@@ -14,6 +14,7 @@
     stroke-width=".2"
   width="2000"-->
       <svg
+        id="svg-container"
         baseprofile="tiny"
         stroke-linecap="round"
         stroke-linejoin="round"
@@ -1137,7 +1138,7 @@
         ></path>
         <path
           class="United States"
-          d="M 118.8 379.3 117.7 380.4 116.5 379.5 117.1 377.7 116.7 375.3 117.2 374.6 118.4 373.6 118.3 372.3 118.7 371.7 119.1 371.8 121 372.9 121.9 373.5 122.6 374.3 123.5 376.6 123.3 376.9 120.8 378.3 118.8 379.3 Z"
+          d="M 118.8 379.3 117.7 380.4 116.5 379.5 117.1 377.7 116.7 375.3 117.2 374.6 118.4 373.6 118.3 372.3 118.7 371.7 119.1 371.8 121 372.9 121.9 373.5 122.6 374.3 123.5 376.6 123.3 376.9 120.8 378.3 118.8 379.3  Z"
         ></path>
         <path
           class="United States"
@@ -2075,9 +2076,10 @@
         <circle cx="673.5" cy="724.1" id="1"></circle>
         <circle cx="1798.2" cy="719.3" id="2"></circle>
       </svg>
+
+      <div id="tooltip" style="display: none"></div>
     </div>
 
-    <!-- <script type="module" src="/src/js/map.js"></script>
-    <script src="https://d3js.org/d3.v7.min.js"></script> -->
+    <script type="module" src="/src/js/map.js"></script>
   </body>
 </html>

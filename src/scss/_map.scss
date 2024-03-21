@@ -33,4 +33,17 @@ svg path {
 }
 svg path:hover {
   fill: rgb(36, 99, 78);
+  transition: 0.1s;
+  cursor: pointer;
+}
+.clickedCountry {
+  fill: rgba(36, 99, 78);
+}
+
+#tooltip {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
 }
