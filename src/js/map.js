@@ -19,3 +19,34 @@ function changeColorOnClick(event) {
 
 // Add event listener to the SVG container
 svgPath.addEventListener("click", changeColorOnClick);
+
+const svgPaths = document.querySelectorAll("#svg-container path");
+const tooltip = document.getElementById("tooltip");
+svgPaths.forEach((path) => {
+  path.addEventListener("mouseover", handleMouseOver);
+  path.addEventListener("mouseout", handleMouseOut);
+});
+
+function handleMouseOver(event) {
+  const pathName = event.target.getAttribute("name");
+  const pathNamecl = event.target.getAttribute("class");
+  updateTooltipContent(pathName, pathNamecl, event.pageX, event.pageY);
+}
+
+function handleMouseOut() {
+  tooltip.style.display = "none";
+}
+
+function updateTooltipContent(pathName, pathNamecl, mouseX, mouseY) {
+  if (pathName) {
+    tooltip.textContent = pathName;
+    tooltip.style.display = "block";
+    tooltip.style.left = mouseX + "px";
+    tooltip.style.top = mouseY + "px";
+  } else if (pathNamecl) {
+    tooltip.textContent = pathNamecl;
+    tooltip.style.display = "block";
+    tooltip.style.left = mouseX + "px";
+    tooltip.style.top = mouseY + "px";
+  }
+}

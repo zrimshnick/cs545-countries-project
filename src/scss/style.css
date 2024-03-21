@@ -48,6 +48,7 @@ svg path:hover {
   color: white;
   padding: 5px;
   border-radius: 5px;
+  font-size: 2em;
 }
 
 .hidden {
