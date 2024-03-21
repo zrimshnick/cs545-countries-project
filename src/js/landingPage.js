@@ -17,18 +17,26 @@ document.addEventListener("DOMContentLoaded", function () {
 signInEnter.addEventListener("click", () => {
   const userNameVal = document.getElementById(
     "landingPage-sign-in-username-field"
-  ).value;
+  );
   const passwordVal = document.getElementById(
     "landingPage-sign-in-password-field"
-  ).value;
-  console.log(userNameVal);
-  console.log(passwordVal);
-  if (userNameVal === "user1" && passwordVal === "pwd") {
+  );
+  console.log(userNameVal.value);
+  console.log(passwordVal.value);
+  if (userNameVal.value === "user1" && passwordVal.value === "pwd") {
     window.location.href = "/src/pages/index.html";
   } else {
-    userNameField.classList.add("passwordWrong");
-    passwordField.classList.add("passwordWrong");
+    console.log("username or password wrong");
+    userNameVal.classList.add("passwordWrong");
+    passwordVal.classList.add("passwordWrong");
 
     //console.error;
   }
 });
+
+/* function changeHeight() {
+  let div = document.getElementById("landingPage-sign-in-container");
+  //let currentHeight = div.clientHeight;
+  //let newHeight = currentHeight + 5;
+  div.style.height = "auto";
+} */

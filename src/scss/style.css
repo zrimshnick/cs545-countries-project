@@ -4,16 +4,20 @@ body {
   padding: 0;
   margin: 0;
   font-size: 62.5%;
-  color: black;
+  color: white;
   font-family: "Open Sans", sans-serif;
   font-weight: 500;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: #212121;
+  height: 100vh;
 }
 
 .title {
+  padding-top: 3rem;
+  padding-bottom: 5rem;
   font-size: 5rem;
 }
 
@@ -22,10 +26,14 @@ body {
   height: 700px;
 }
 
-path {
+svg path {
   fill: #ccc;
   stroke: black;
   stroke-width: 1;
+}
+
+svg path:hover {
+  fill: rgb(36, 99, 78);
 }
 
 .hidden {
@@ -47,7 +55,7 @@ path {
 }
 
 #landingPage-container {
-  height: 90vh;
+  height: 100vh;
   width: 100vw;
   color: white;
   display: flex;
@@ -55,12 +63,12 @@ path {
   align-items: center;
   justify-content: center;
   background-image: url("/src/images/worldBackground2.png");
-  background-size: 300vw auto;
+  background-size: 400vw auto;
   position: relative;
   background-position: 0%;
   background-repeat: no-repeat;
   z-index: 1;
-  animation: slideBackground 45s linear infinite;
+  animation: slideBackground 60s linear infinite;
   overflow: hidden;
   gap: 10rem;
 }
@@ -155,24 +163,39 @@ path {
   background-color: #212121;
   border: 1px #212121 solid;
   border-radius: 8px;
-  padding: 2rem 3rem 2rem 3rem;
+  padding: 3rem 3rem 3rem 3rem;
   transition: width 0.5s, height 0.5s;
   box-shadow: 0px 3px 5px 3px rgba(0, 0, 0, 0.5);
-  /* offset-x | offset-y | blur-radius | spread-radius | color */
+  width: 30%;
+  height: auto;
+}
+
+#landingPage-sign-in-welcome {
+  font-size: 6em;
+  padding-bottom: 2.5rem;
 }
 
 #landingPage-sign-in-button {
   font-size: 2rem;
   padding: 1rem;
-  border: 1px transparent solid;
+  color: white;
+  text-decoration: none;
+  background-color: transparent;
   border-radius: 1.5rem;
   text-align: center;
   width: 15rem;
+  border: 1px solid white;
 }
 #landingPage-sign-in-button:hover {
-  border: 1px solid white;
-  transition: all 0.25s ease-in-out;
+  transition: all 0.1s ease-in-out;
+  background-color: rgb(36, 99, 78);
   cursor: pointer;
+}
+
+#landingPage-sign-in-username,
+#landingPage-sign-in-password {
+  background-color: white;
+  border-radius: 20rem;
 }
 
 #landingPage-sign-in-username-field,
@@ -182,19 +205,27 @@ path {
   width: 25rem;
   padding-left: 1.5rem;
   font-size: 2.5em;
+  outline: none;
+  background-color: white;
+  transition: 0.1s all ease-in-out;
+}
+#landingPage-sign-in-username-field:focus,
+#landingPage-sign-in-password-field:focus {
+  border: 2px solid rgb(36, 99, 78);
 }
 
 .passwordWrong {
-  border: 1px red solid;
+  border: 2px solid red;
   border-radius: 20rem;
 }
 
 #landingPage-sign-in-enter {
+  color: white;
   text-align: center;
-  font-size: 3em;
+  font-size: 2.5em;
   margin-top: 1rem;
   margin-bottom: 0.5rem;
-  padding: 0.5rem 0rem;
+  padding: 0.75rem 0rem;
   width: 10rem;
   background-color: transparent;
   border: 1px white solid;
@@ -203,7 +234,7 @@ path {
 }
 #landingPage-sign-in-enter:hover {
   cursor: pointer;
-  background-color: rgba(24, 55, 195, 0.5);
+  background-color: rgb(36, 99, 78);
 }
 
 html,
@@ -224,6 +255,7 @@ body {
 
 .welcome {
   font-size: 5rem;
+  padding-top: 3rem;
   padding-bottom: 4rem;
 }
 
@@ -240,16 +272,19 @@ li {
 
 .featuresButtons {
   font-size: 2rem;
-  color: black;
-  background-color: white;
+  -webkit-text-decoration: solid;
+          text-decoration: solid;
+  color: white;
+  background-color: transparent;
   padding: 1rem;
-  border: 1px black solid;
+  border: 1px white solid;
   border-radius: 1rem;
   margin-left: 3rem;
   margin-right: 3rem;
 }
 
 .featuresButtons:hover {
-  background-color: rgb(216, 216, 216);
-  transition: 0.2s ease-in-out;
+  background-color: rgb(36, 99, 78);
+  transition: 0.1s ease-in-out;
+  cursor: pointer;
 }/*# sourceMappingURL=style.css.map */

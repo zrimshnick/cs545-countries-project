@@ -19,6 +19,7 @@ body {
 
 .welcome {
   font-size: 5rem;
+  padding-top: 3rem;
   padding-bottom: 4rem;
 }
 
@@ -33,15 +34,17 @@ li {
 }
 .featuresButtons {
   font-size: 2rem;
-  color: black;
-  background-color: white;
+  text-decoration: solid;
+  color: white;
+  background-color: transparent;
   padding: 1rem;
-  border: 1px black solid;
+  border: 1px white solid;
   border-radius: 1rem;
   margin-left: 3rem;
   margin-right: 3rem;
 }
 .featuresButtons:hover {
-  background-color: rgb(216, 216, 216);
-  transition: 0.2s ease-in-out;
+  background-color: rgb(36, 99, 78);
+  transition: 0.1s ease-in-out;
+  cursor: pointer;
 }
