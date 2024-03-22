@@ -14,16 +14,27 @@ body {
   background-color: #212121;
   height: 100vh;
 }
+.hidden {
+  display: none;
+}
+
+#map-page-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 100vh;
+}
 
 .title {
   padding-top: 3rem;
-  padding-bottom: 5rem;
   font-size: 5rem;
 }
 
 #map-container {
-  width: 100%;
-  height: 700px;
+  width: 100vw;
+  height: 100vh;
+  padding-top: 4rem;
 }
 
 svg path {
@@ -47,4 +58,42 @@ svg path:hover {
   padding: 5px;
   border-radius: 5px;
   font-size: 2em;
+}
+
+#country-info-outer-container {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease;
+  z-index: 0;
+}
+
+#country-info-inner-container {
+  width: 40rem;
+  height: 40rem;
+  background-color: #212121;
+  font-size: 4em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  border: 1px solid rgb(36, 99, 78);
+  border-radius: 3rem;
+  position: relative;
+  z-index: 2;
+}
+
+#country-info-dimmer {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-color: #21212175;
+}
+#country-info-dimmer:hover {
+  cursor: pointer;
 }

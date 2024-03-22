@@ -50,3 +50,49 @@ function updateTooltipContent(pathName, pathNamecl, mouseX, mouseY) {
     tooltip.style.top = mouseY + "px";
   }
 }
+
+/////////
+const fetchCountryData = async (country) => {
+  let countryName = country;
+  const countryNameURL = `https://restcountries.com/v3.1/name/${countryName}?fullText=true`;
+
+  try {
+    const res = await fetch(countryNameURL);
+    if (!res.ok) {
+      throw new Error("Network response was not ok");
+    }
+    // countryData here
+    const countryData = await res.json();
+    return countryData;
+  } catch (e) {
+    console.log("Error fetching data", e);
+    alert("Failed to fetch country info");
+  }
+
+  return countryData;
+};
+
+const getDataOnClick = async (event) => {
+  const clickedPath = event.target;
+  const allPaths = svgPath.querySelectorAll("path");
+
+  if (clickedPath.classList.contains("clickedCountry")) {
+    const countryData = await fetchCountryData(
+      clickedPath.getAttribute("name")
+    );
+    console.log(countryData);
+    return countryData;
+  }
+};
+svgPath.addEventListener("click", getDataOnClick);
+
+//// popup
+const dimmer = document.getElementById("country-info-dimmer");
+const popupOuter = document.getElementById("country-info-outer-container");
+const popupInner = document.getElementById("country-info-inner-container");
+
+dimmer.addEventListener("click", function () {
+  popupOuter.classList.add("hidden");
+  dimmer.classList.add("hidden");
+  popupInner.classList.add("hidden");
+});
