@@ -52,6 +52,8 @@ function updateTooltipContent(pathName, pathNamecl, mouseX, mouseY) {
 }
 
 /////////
+const popupOuter = document.getElementById("country-info-outer-container");
+
 const fetchCountryData = async (country) => {
   let countryName = country;
   const countryNameURL = `https://restcountries.com/v3.1/name/${countryName}?fullText=true`;
@@ -77,22 +79,47 @@ const getDataOnClick = async (event) => {
   const allPaths = svgPath.querySelectorAll("path");
 
   if (clickedPath.classList.contains("clickedCountry")) {
-    const countryData = await fetchCountryData(
-      clickedPath.getAttribute("name")
-    );
+    let countryData = await fetchCountryData(clickedPath.getAttribute("name"));
+    countryData = countryData[0];
     console.log(countryData);
+
+    const commonName = document.getElementById("country-info-name");
+    const officialName = document.getElementById("country-info-official-name");
+    const flag = document.getElementById("country-info-flag");
+    const capital = document.getElementById("country-info-capital");
+    const population = document.getElementById("country-info-population");
+    const currency = document.getElementById("country-info-currency");
+    commonName.textContent = `${countryData.name.common}`;
+    officialName.textContent = `Official Name: ${countryData.name.official}`;
+    flag.textContent = `${countryData.flag}`;
+    capital.textContent = `Capital: ${countryData.capital[0]}`;
+    population.textContent = `Population: ${countryData.population.toString()}`;
+    const currencyName = Object.keys(countryData.currencies)[0].toString();
+    currency.textContent = `Currency: ${countryData.currencies[currencyName].name} (${currencyName} | ${countryData.currencies[currencyName].symbol})`;
+
+    //
+    if (popupOuter.classList.contains("hidden")) {
+      popupOuter.classList.remove("hidden");
+    }
     return countryData;
   }
 };
 svgPath.addEventListener("click", getDataOnClick);
 
+/*      
+<div class="hidden" id="country-info-outer-container">
+        <div id="country-info-dimmer"></div>
+        <div id="country-info-inner-container">
+          <div id="country-info-name">Country Name</div>
+          <div id="country-info-official-name">Country Name</div>
+          <div id="country-info-flag">FLAG</div>
+          <div id="country-info-capital">Capital here</div>
+          <div id="country-info-population">Population here</div>
+          <div id="country-info-currency">Currency here</div>
+        </div> */
+
 //// popup
 const dimmer = document.getElementById("country-info-dimmer");
-const popupOuter = document.getElementById("country-info-outer-container");
-const popupInner = document.getElementById("country-info-inner-container");
-
 dimmer.addEventListener("click", function () {
   popupOuter.classList.add("hidden");
-  dimmer.classList.add("hidden");
-  popupInner.classList.add("hidden");
 });
