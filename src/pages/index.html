@@ -6,17 +6,27 @@
     <link rel="stylesheet" href="/src/scss/style.css" />
   </head>
   <body>
-    <div class="welcome">Welcome to learn the world!</div>
-    <div class="featuresButtonsContainer">
-      <a href="landingPage.html">
-        <button class="featuresButtons">Home</button>
-      </a>
-      <a href="map.html">
-        <button class="featuresButtons">Interactive Map</button>
-      </a>
-      <a href="map.html">
-        <button class="featuresButtons">Quiz Game</button>
-      </a>
+    <header id="navbar-container">
+      <div id="navbar-title">Learn the World!</div>
+      <nav id="navbar-links-container">
+        <a href="landingPage.html">
+          <button class="featuresButtons">Home</button>
+        </a>
+        <a href="map.html">
+          <button class="featuresButtons">Interactive Map</button>
+        </a>
+        <a href="map.html">
+          <button class="featuresButtons">Quiz Game</button>
+        </a>
+      </nav>
+    </header>
+    <div id="welcome-message-container">
+      <h1 id="welcome-message-title">Welcome to Learn the World!</h1>
+      <p id="welcome-message">
+        Check out our interactive map, to learn fun facts about the countries of
+        the world, or try our quiz game to see how many nations you can spot on
+        the map!
+      </p>
     </div>
 
     <script type="module" src="/src/js/index.js"></script>
