@@ -94,6 +94,10 @@ svg path:hover {
   fill: rgb(36, 99, 78);
 }
 
+svg path.clickedCountry:hover {
+  fill: rgb(36, 99, 78);
+}
+
 #tooltip {
   position: absolute;
   background-color: rgba(0, 0, 0, 0.8);
@@ -367,6 +371,164 @@ svg path:hover {
 #landingPage-sign-in-enter:hover {
   cursor: pointer;
   background-color: rgb(36, 99, 78);
+}
+
+html,
+body {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-size: 62.5%;
+  color: white;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 500;
+  background-color: #212121;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hidden {
+  display: none;
+}
+
+#navbar-container {
+  width: 100vw;
+  height: 4rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  padding: 2rem;
+  background-color: rgb(36, 99, 78);
+}
+
+#navbar-title {
+  height: auto;
+  font-size: 4em;
+  margin-left: 4rem;
+}
+
+#navbar-links-container {
+  margin-right: 6rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 3rem;
+}
+
+.featuresButtons {
+  font-size: 2.75em;
+  background-color: transparent;
+  border-radius: 2rem;
+  border: 2px solid #212121;
+  color: white;
+  padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+  transition: 0.1s ease-in-out all;
+}
+
+.featuresButtons:hover {
+  cursor: pointer;
+  background-color: #212121;
+}
+
+#qg-map-page-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 100vh;
+  padding-top: 0rem;
+}
+
+#qg-map-container {
+  width: 100vw;
+  height: 100vh;
+  padding-top: 4rem;
+}
+
+svg path {
+  fill: #ccc;
+  stroke: black;
+  stroke-width: 1;
+}
+
+svg path:hover {
+  fill: rgb(90, 90, 90);
+  transition: 0.1s;
+  cursor: pointer;
+}
+
+.clickedCountryWrong {
+  fill: rgb(229, 64, 64);
+}
+
+svg path.clickedCountryWrong:hover {
+  fill: rgb(229, 64, 64);
+}
+
+.clickedCountryCorrect {
+  fill: rgb(47, 153, 82);
+}
+
+svg path.clickedCountryCorrect:hover {
+  fill: rgb(47, 153, 82);
+}
+
+#qg-game-container {
+  background-color: #212121;
+  border: 1px solid rgb(36, 99, 78);
+  box-shadow: 0px 0px 100px rgb(0, 0, 0);
+  border-radius: 4rem;
+  position: fixed;
+  bottom: 10%;
+  left: 5%;
+  z-index: 999;
+  width: 20rem;
+  height: 20rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+}
+
+#qg-game-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  font-size: 4em;
+}
+#qg-game-header button {
+  font-size: 2rem;
+  background-color: transparent;
+  border: 1px transparent solid;
+  border-radius: 50%;
+  color: white;
+  text-align: center;
+  transition: 0.1s ease-in-out all;
+}
+#qg-game-header button:hover {
+  cursor: pointer;
+  color: rgb(36, 99, 78);
+}
+
+#qg-game-score-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+#qg-game-score-correct-container,
+#qg-game-score-total-container {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  font-size: 3em;
 }
 
 html,
