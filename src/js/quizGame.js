@@ -25,15 +25,57 @@ function changeColorOnClick(event) {
   const allPaths = svgContainer.querySelectorAll("path");
 
   // Add permanentColor class to the clicked path
-  if (
-    clickedPath.classList.contains("clickedCountryWrong") ||
-    clickedPath.classList.contains("clickedCountryCorrect")
-  ) {
-    //clickedPath.classList.remove("clickedCountry");
-  } else {
-    clickedPath.classList.add("clickedCountryCorrect");
-  }
 }
 
 // Add event listener to the SVG container
 svgContainer.addEventListener("click", changeColorOnClick);
+
+//// score container at bottom
+let currCountry = countryNames[0];
+let currScore = 0;
+let currTotal = 0;
+const currCountryElement = document.getElementById(
+  "qg-game-header-curr-country"
+);
+const currScoreElement = document.getElementById("qg-game-score-correct-num");
+const currTotalElement = document.getElementById("qg-game-score-total-num");
+
+// Change the text content
+currCountryElement.textContent = currCountry;
+currScoreElement.textContent = currScore;
+currTotalElement.textContent = currTotal;
+// function to click country
+function clickOnCountry(event) {
+  const clickedPath = event.target;
+  const pathName = event.target.getAttribute("name");
+  // Add permanentColor class to the clicked path
+  if (pathName === currCountry) {
+    clickedPath.classList.add("clickedCountryCorrect");
+    currScore = currScore + 1;
+    currScoreElement.textContent = currScore;
+    currTotal = currTotal + 1;
+    currTotalElement.textContent = currTotal;
+  } else {
+    clickedPath.classList.add("clickedCountryWrong");
+    currTotal = currTotal + 1;
+    currTotalElement.textContent = currTotal;
+  }
+}
+pathElements.forEach((path) => {
+  path.addEventListener("click", function () {
+    if (
+      path.classList.contains("clickedCountryWrong") ||
+      path.classList.contains("clickedCountryCorrect")
+    ) {
+      console.log("already clicked on this one");
+    } else {
+      if (this.getAttribute("name") === currCountry) {
+        console.log(`Clicked: ${this.getAttribute("name")} CORRECT`);
+        path.classList.add("clickedCountryCorrect");
+      } else {
+        console.log(`Clicked: ${this.getAttribute("name")} WRONG`);
+        path.classList.add("clickedCountryWrong");
+      }
+    }
+  });
+});

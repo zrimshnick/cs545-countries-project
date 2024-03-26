@@ -106,18 +106,6 @@ const getDataOnClick = async (event) => {
 };
 svgPath.addEventListener("click", getDataOnClick);
 
-/*      
-<div class="hidden" id="country-info-outer-container">
-        <div id="country-info-dimmer"></div>
-        <div id="country-info-inner-container">
-          <div id="country-info-name">Country Name</div>
-          <div id="country-info-official-name">Country Name</div>
-          <div id="country-info-flag">FLAG</div>
-          <div id="country-info-capital">Capital here</div>
-          <div id="country-info-population">Population here</div>
-          <div id="country-info-currency">Currency here</div>
-        </div> */
-
 //// popup
 const dimmer = document.getElementById("country-info-dimmer");
 dimmer.addEventListener("click", function () {

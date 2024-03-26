@@ -499,8 +499,9 @@ svg path.clickedCountryCorrect:hover {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
+  gap: 0rem;
   font-size: 4em;
+  height: 5rem;
 }
 #qg-game-header button {
   font-size: 2rem;
@@ -514,6 +515,13 @@ svg path.clickedCountryCorrect:hover {
 #qg-game-header button:hover {
   cursor: pointer;
   color: rgb(36, 99, 78);
+}
+
+#qg-game-header-curr-country {
+  text-align: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-size: 0.85em;
 }
 
 #qg-game-score-container {
