@@ -452,6 +452,7 @@ svg path {
   fill: #ccc;
   stroke: black;
   stroke-width: 1;
+  transition: fill 0.4s ease-out;
 }
 
 svg path:hover {
@@ -485,7 +486,7 @@ svg path.clickedCountryCorrect:hover {
   bottom: 10%;
   left: 5%;
   z-index: 999;
-  width: 20rem;
+  width: 22.5rem;
   height: 20rem;
   display: flex;
   flex-direction: column;
@@ -497,7 +498,8 @@ svg path.clickedCountryCorrect:hover {
 #qg-game-header {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
+  width: 20rem;
   align-items: center;
   gap: 0rem;
   font-size: 4em;
@@ -517,11 +519,53 @@ svg path.clickedCountryCorrect:hover {
   color: rgb(36, 99, 78);
 }
 
+#qg-game-header-left-arrow {
+  margin-left: 0.5rem;
+}
+
+#qg-game-header-right-arrow {
+  margin-right: 0.5rem;
+}
+
 #qg-game-header-curr-country {
   text-align: center;
   padding-left: 1rem;
   padding-right: 1rem;
   font-size: 0.85em;
+}
+
+#qg-game-alert {
+  display: flex;
+  position: absolute;
+  font-size: 1.75em;
+  opacity: 0;
+  color: transparent;
+  border: 1px transparent solid;
+  border-radius: 2rem;
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+  transition: 1s ease-in-out;
+  margin-bottom: 1rem;
+}
+
+#qg-game-alert.skip {
+  opacity: 1;
+  color: gray;
+  border-color: gray;
+  transition: 1s ease-in-out opacity;
+}
+
+#qg-game-alert.greened {
+  opacity: 1;
+  color: rgb(47, 153, 82);
+  border-color: rgb(47, 153, 82);
+  transition: 1s ease-in-out opacity;
+}
+
+#qg-game-alert.redded {
+  opacity: 1;
+  color: rgb(229, 64, 64);
+  border-color: rgb(229, 64, 64);
+  transition: 1s ease-in-out opacity;
 }
 
 #qg-game-score-container {
