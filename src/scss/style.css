@@ -391,6 +391,10 @@ body {
   display: none;
 }
 
+.flex {
+  display: flex;
+}
+
 #navbar-container {
   width: 100vw;
   height: 4rem;
@@ -477,6 +481,69 @@ svg path.clickedCountryCorrect:hover {
   fill: rgb(47, 153, 82);
 }
 
+/* game controls*/
+#qg-game-control-container {
+  background-color: #212121;
+  border: 1px solid rgb(36, 99, 78);
+  box-shadow: 0px 0px 100px rgb(0, 0, 0);
+  border-radius: 4rem;
+  position: fixed;
+  bottom: 10%;
+  left: 5%;
+  z-index: 999;
+  width: 22.5rem;
+  height: 20rem;
+  font-size: 3em;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+#qg-game-control-dropdown {
+  font-size: 1.05em;
+  width: 18rem;
+  color: white;
+  background-color: #212121;
+  border: 1px rgb(36, 99, 78) solid;
+  border-radius: 2rem;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+}
+#qg-game-control-dropdown option {
+  color: white;
+}
+
+#qg-game-control-dropdown:hover {
+  cursor: pointer;
+}
+
+.continentDropdownOptions {
+  font-size: 0.75em;
+  border: 1px rgb(36, 99, 78) solid;
+  border-radius: 1rem;
+}
+
+.continentDropdownOptions:hover {
+  cursor: pointer;
+}
+
+#qg-game-control-start-button {
+  font-size: 1.1em;
+  background-color: rgb(36, 99, 78);
+  border: 1px solid rgb(36, 99, 78);
+  border-radius: 2rem;
+  color: white;
+  padding: 0.5rem 1rem;
+  transition: 0.2s ease-in-out all;
+  margin-top: 2rem;
+}
+
+#qg-game-control-start-button:hover {
+  cursor: pointer;
+  border-color: white;
+}
+
+/* game container*/
 #qg-game-container {
   background-color: #212121;
   border: 1px solid rgb(36, 99, 78);
@@ -488,7 +555,6 @@ svg path.clickedCountryCorrect:hover {
   z-index: 999;
   width: 22.5rem;
   height: 20rem;
-  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -581,6 +647,20 @@ svg path.clickedCountryCorrect:hover {
   flex-direction: row;
   gap: 0.5rem;
   font-size: 3em;
+}
+
+#qg-game-restart-button {
+  background-color: rgb(36, 99, 78);
+  border: 1px rgb(36, 99, 78) solid;
+  border-radius: 2rem;
+  padding: 0.25rem 0.75rem;
+  color: white;
+  transition: 0.2s ease-in-out all;
+}
+
+#qg-game-restart-button:hover {
+  cursor: pointer;
+  border-color: white;
 }
 
 html,

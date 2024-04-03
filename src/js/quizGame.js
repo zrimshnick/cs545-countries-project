@@ -1,13 +1,252 @@
 const svgContainer = document.getElementById("qg-svg-container");
 const pathElements = svgContainer.querySelectorAll("path");
-let countryNames = [];
+let countryNames = ["Click right arrow to begin!"];
+let africaCountries = [
+  "Algeria",
+  "Angola",
+  "Benin",
+  "Botswana",
+  "Burkina Faso",
+  "Burundi",
+  "Cape Verde",
+  "Cameroon",
+  "Central African Republic",
+  "Chad",
+  "Comoros",
+  "Republic of Congo",
+  "Democratic Republic of the Congo",
+  "Djibouti",
+  "Egypt",
+  "Equatorial Guinea",
+  "Eritrea",
+  "Ethiopia",
+  "Eswatini",
+  "Gabon",
+  "The Gambia",
+  "Ghana",
+  "Guinea",
+  "Guinea-Bissau",
+  "Côte d'Ivoire",
+  "Kenya",
+  "Lesotho",
+  "Liberia",
+  "Libya",
+  "Madagascar",
+  "Malawi",
+  "Mali",
+  "Mauritania",
+  "Mauritius",
+  "Morocco",
+  "Mozambique",
+  "Namibia",
+  "Niger",
+  "Nigeria",
+  "Rwanda",
+  "São Tomé and Principe",
+  "Senegal",
+  "Seychelles",
+  "Sierra Leone",
+  "Somalia",
+  "South Africa",
+  "South Sudan",
+  "Sudan",
+  "Tanzania",
+  "Togo",
+  "Tunisia",
+  "Uganda",
+  "Zambia",
+  "Zimbabwe",
+  "Western Sahara",
+];
+let asiaCountries = [
+  "Afghanistan",
+  "Armenia",
+  "Azerbaijan",
+  "Bahrain",
+  "Bangladesh",
+  "Bhutan",
+  "Brunei",
+  "Cambodia",
+  "China",
+  "Georgia",
+  "India",
+  "Indonesia",
+  "Iran",
+  "Iraq",
+  "Israel",
+  "Japan",
+  "Jordan",
+  "Kazakhstan",
+  "Kuwait",
+  "Kyrgyzstan",
+  "Laos",
+  "Lebanon",
+  "Malaysia",
+  "Maldives",
+  "Mongolia",
+  "Myanmar",
+  "Nepal",
+  "North Korea",
+  "Oman",
+  "Pakistan",
+  "Palestine",
+  "Philippines",
+  "Qatar",
+  "Russia",
+  "Saudi Arabia",
+  "South Korea",
+  "Sri Lanka",
+  "Syria",
+  "Taiwan",
+  "Tajikistan",
+  "Thailand",
+  "Timor-Leste",
+  "Turkey",
+  "Turkmenistan",
+  "United Arab Emirates",
+  "Uzbekistan",
+  "Vietnam",
+  "Yemen",
+];
+let europeCountries = [
+  "Albania",
+  "Austria",
+  "Belarus",
+  "Belgium",
+  "Bosnia and Herzegovina",
+  "Bulgaria",
+  "Croatia",
+  "Cyprus",
+  "Czech Republic",
+  "Denmark",
+  "Estonia",
+  "Finland",
+  "France",
+  "Georgia",
+  "Germany",
+  "Greece",
+  "Hungary",
+  "Iceland",
+  "Ireland",
+  "Italy",
+  "Latvia",
+  "Lithuania",
+  "Luxembourg",
+  "Malta",
+  "Moldova",
+  "Montenegro",
+  "Netherlands",
+  "Macedonia",
+  "Norway",
+  "Poland",
+  "Portugal",
+  "Romania",
+  "Russia",
+  "Serbia",
+  "Slovakia",
+  "Slovenia",
+  "Spain",
+  "Sweden",
+  "Switzerland",
+  "Turkey",
+  "Ukraine",
+  "United Kingdom",
+  "Kosovo",
+  "Netherlands",
+];
+let northAmericaCountries = [
+  "Antigua and Barbuda",
+  "Bahamas",
+  "Barbados",
+  "Belize",
+  "Canada",
+  "Costa Rica",
+  "Cuba",
+  "Dominica",
+  "Dominican Republic",
+  "El Salvador",
+  "Grenada",
+  "Guatemala",
+  "Haiti",
+  "Honduras",
+  "Jamaica",
+  "Mexico",
+  "Nicaragua",
+  "Panama",
+  "Saint Kitts and Nevis",
+  "Saint Lucia",
+  "Saint Vincent and the Grenadines",
+  "Trinidad and Tobago",
+  "United States",
+];
+let northAmericaTerritories = [
+  "Anguilla",
+  "Greenland",
+  "Aruba",
+  "Bermuda",
+  "British Virgin Islands",
+  "Cayman Islands",
+  "Curaçao",
+  "Guadeloupe",
+  "Martinique",
+  "Montserrat",
+  "Puerto Rico",
+  "Saba (Netherlands)",
+  "Saint-Barthélemy",
+  "Saint-Martin",
+  "St. Eustatius (Netherlands)",
+  "Sint Maarten",
+  "Turks and Caicos Islands",
+  "United States Virgin Islands",
+];
+
+let oceaniaCountries = [
+  "Australia",
+  "Fiji",
+  "Marshall Islands",
+  "Federated States of Micronesia",
+  "Nauru",
+  "New Zealand",
+  "Palau",
+  "Papua New Guinea",
+  "Samoa",
+  "Solomon Islands",
+  "Tonga",
+  "Tuvalu",
+  "Vanuatu",
+];
+let oceaniaTerritories = [
+  "American Samoa",
+  "French Polynesia",
+  "Guam",
+  "New Caledonia",
+  "Northern Mariana Islands",
+];
+let southAmericaCountries = [
+  "Argentina",
+  "Bolivia",
+  "Brazil",
+  "Chile",
+  "Colombia",
+  "Ecuador",
+  "Guyana",
+  "French Guiana",
+  "Paraguay",
+  "Peru",
+  "Suriname",
+  "Uruguay",
+  "Venezuela",
+];
+
+//"Mayotte",
+//"Reunion",
+//"Canary Islands (Spain)",
+//"Faeroe Islands",
+//"Falkland Islands",
+//
 
 /////// function to get all names into array
-pathElements.forEach((path) => {
-  const name = path.getAttribute("name");
-  countryNames.push(name);
-});
-console.log(countryNames);
+
 // function to shuffle array
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
@@ -27,6 +266,56 @@ function changeColorOnClick(event) {
   // Add permanentColor class to the clicked path
 }
 
+///
+const dropdownSelector = document.getElementById("qg-game-control-dropdown");
+const startButton = document.getElementById("qg-game-control-start-button");
+dropdownSelector.addEventListener("change", function () {
+  const selectedOption =
+    dropdownSelector.options[dropdownSelector.selectedIndex].value;
+  startButton.addEventListener("click", function () {
+    //// selected option
+    console.log("selected option: ", selectedOption);
+    if (selectedOption === "NA") {
+      countryNames = northAmericaCountries;
+    }
+    if (selectedOption === "SA") {
+      countryNames = southAmericaCountries;
+    }
+    if (selectedOption === "EU") {
+      countryNames = europeCountries;
+    }
+    if (selectedOption === "AF") {
+      countryNames = africaCountries;
+    }
+    if (selectedOption === "AS") {
+      countryNames = asiaCountries;
+    }
+    if (selectedOption === "OC") {
+      countryNames = oceaniaCountries;
+    }
+    if (selectedOption === "ALL") {
+      pathElements.forEach((path) => {
+        const name = path.getAttribute("name");
+        countryNames.push(name);
+      });
+      console.log(countryNames);
+    }
+    console.log(countryNames);
+    document
+      .getElementById("qg-game-control-container")
+      .classList.remove("flex");
+    document
+      .getElementById("qg-game-control-container")
+      .classList.add("hidden");
+    document.getElementById("qg-game-container").classList.remove("hidden");
+    document.getElementById("qg-game-container").classList.add("flex");
+  });
+});
+
+const restartButton = document.getElementById("qg-game-restart-button");
+restartButton.addEventListener("click", function () {
+  location.reload();
+});
 // Add event listener to the SVG container
 svgContainer.addEventListener("click", changeColorOnClick);
 
@@ -51,7 +340,8 @@ pathElements.forEach((path) => {
   path.addEventListener("click", function () {
     if (
       path.classList.contains("clickedCountryWrong") ||
-      path.classList.contains("clickedCountryCorrect")
+      path.classList.contains("clickedCountryCorrect") ||
+      currCountry === "Click right arrow to begin!"
     ) {
       console.log("already clicked on this one");
     } else {
