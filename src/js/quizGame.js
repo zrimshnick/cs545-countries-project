@@ -245,7 +245,27 @@ let southAmericaCountries = [
 //"Falkland Islands",
 //
 
-/////// function to get all names into array
+/////// function to do timer
+let seconds = 0;
+let minutes = 0;
+let timerInterval;
+function startTimer() {
+  timerInterval = setInterval(function () {
+    seconds++;
+    if (seconds >= 60) {
+      seconds = 0;
+      minutes++;
+    }
+    const formattedTime =
+      (minutes < 10 ? "0" + minutes : minutes) +
+      ":" +
+      (seconds < 10 ? "0" + seconds : seconds);
+    timer.innerText = formattedTime;
+  }, 1000);
+}
+function stopTimer() {
+  clearInterval(timerInterval);
+}
 
 // function to shuffle array
 function shuffleArray(array) {
@@ -269,37 +289,56 @@ function changeColorOnClick(event) {
 ///
 const dropdownSelector = document.getElementById("qg-game-control-dropdown");
 const startButton = document.getElementById("qg-game-control-start-button");
-dropdownSelector.addEventListener("change", function () {
+const timer = document.getElementById("qg-timer-container");
+startButton.addEventListener("click", function () {
+  if (!timerInterval) {
+    startTimer();
+  }
+});
+
+let originalTotal = 0;
+dropdownSelector.addEventListener("click", function () {
   const selectedOption =
     dropdownSelector.options[dropdownSelector.selectedIndex].value;
   startButton.addEventListener("click", function () {
     //// selected option
+    timer.classList.remove("hidden");
+    timer.classList.add("flex");
+
     console.log("selected option: ", selectedOption);
     if (selectedOption === "NA") {
-      countryNames = northAmericaCountries;
+      countryNames = shuffleArray(northAmericaCountries);
+      originalTotal = northAmericaCountries.length;
     }
     if (selectedOption === "SA") {
-      countryNames = southAmericaCountries;
+      countryNames = shuffleArray(southAmericaCountries);
+      originalTotal = southAmericaCountries.length;
     }
     if (selectedOption === "EU") {
-      countryNames = europeCountries;
+      countryNames = shuffleArray(europeCountries);
+      originalTotal = europeCountries.length;
     }
     if (selectedOption === "AF") {
-      countryNames = africaCountries;
+      countryNames = shuffleArray(africaCountries);
+      originalTotal = africaCountries.length;
     }
     if (selectedOption === "AS") {
-      countryNames = asiaCountries;
+      countryNames = shuffleArray(asiaCountries);
+      originalTotal = asiaCountries.length;
     }
     if (selectedOption === "OC") {
-      countryNames = oceaniaCountries;
+      countryNames = shuffleArray(oceaniaCountries);
+      originalTotal = oceaniaCountries.length;
     }
     if (selectedOption === "ALL") {
       pathElements.forEach((path) => {
         const name = path.getAttribute("name");
         countryNames.push(name);
       });
+      originalTotal = countryNames.length;
       console.log(countryNames);
     }
+    console.log(originalTotal);
     console.log(countryNames);
     document
       .getElementById("qg-game-control-container")
@@ -336,6 +375,7 @@ currScoreElement.textContent = currScore;
 currTotalElement.textContent = currTotal;
 const gameAlert = document.getElementById("qg-game-alert");
 
+let wrongCountries = [];
 pathElements.forEach((path) => {
   path.addEventListener("click", function () {
     if (
@@ -361,11 +401,30 @@ pathElements.forEach((path) => {
         currTotal = currTotal + 1;
         currTotalElement.textContent = currTotal;
         countryNames.splice(countryIndex, 1);
+        console.log(countryNames);
         if (countryNames.length === 0) {
-          window.alert("All done with game");
+          console.log(wrongCountries);
+          wrongCountries.forEach((country) => {
+            const path = document.querySelector(`path[name="${country}"]`);
+            if (path) {
+              path.classList.add("clickedCountryWrong");
+            }
+          });
+          //window.alert(`All done with game\nScore: ${currScore}/${currTotal}`);
+          currCountryElement.textContent = "Completed!";
+          stopTimer();
+          timer.classList.add("transparent");
+          const flashingInterval = setInterval(() => {
+            timer.classList.toggle("transparent");
+          }, 200);
+          setTimeout(() => {
+            clearInterval(flashingInterval);
+            timer.classList.remove("transparent");
+          }, 5000);
+          console.log(`DONE: ${countryNames}`);
         } else {
           if (countryIndex === countryNames.length - 1) {
-            countryIndex === 0;
+            countryIndex = 0;
             currCountry = countryNames[countryIndex];
             currCountryElement.textContent = currCountry;
           } else {
@@ -374,7 +433,7 @@ pathElements.forEach((path) => {
           }
         }
       } else {
-        console.log(`Clicked: ${this.getAttribute("name")} WRONG`);
+        wrongCountries.push(currCountry);
         path.classList.add("clickedCountryWrong");
         currTotal = currTotal + 1;
         currTotalElement.textContent = currTotal;
@@ -402,11 +461,40 @@ pathElements.forEach((path) => {
             }, 5000);
           }
         });
-
+        /////////////////
+        //currTotal = currTotal + 1;
+        //currTotalElement.textContent = currTotal;
         countryNames.splice(countryIndex, 1);
-        //countryIndex = countryIndex + 1;
-        currCountry = countryNames[countryIndex];
-        currCountryElement.textContent = currCountry;
+        console.log(countryNames);
+        if (countryNames.length === 0) {
+          console.log(`wrong: ${wrongCountries}`);
+          wrongCountries.forEach((country) => {
+            const path = document.querySelector(`path[name="${country}"]`);
+            if (path) {
+              path.classList.add("clickedCountryWrong");
+            }
+          });
+          //window.alert(`All done with game\nScore: ${currScore}/${currTotal}`);
+          currCountryElement.textContent = "Completed!";
+          console.log(`DONE: ${countryNames}`);
+        } else {
+          if (countryIndex === countryNames.length - 1) {
+            countryIndex = 0;
+            currCountry = countryNames[countryIndex];
+            currCountryElement.textContent = currCountry;
+          } else {
+            currCountry = countryNames[countryIndex];
+            currCountryElement.textContent = currCountry;
+          }
+        }
+
+        console.log(`wrong: ${wrongCountries}`);
+        wrongCountries.forEach((country) => {
+          const path = document.querySelector(`path[name="${country}"]`);
+          if (path) {
+            path.classList.add("clickedCountryWrong");
+          }
+        });
       }
     }
   });
@@ -414,7 +502,11 @@ pathElements.forEach((path) => {
 
 const leftArrowButton = document.getElementById("qg-game-header-left-arrow");
 leftArrowButton.addEventListener("click", function () {
-  if (countryIndex === 0) {
+  if (
+    countryIndex === 0 ||
+    countryNames.length === 1 ||
+    countryNames.length === 0
+  ) {
   } else {
     countryIndex = countryIndex - 1;
     currCountry = countryNames[countryIndex];
@@ -423,7 +515,11 @@ leftArrowButton.addEventListener("click", function () {
 });
 const rightArrowButton = document.getElementById("qg-game-header-right-arrow");
 rightArrowButton.addEventListener("click", function () {
-  if (countryIndex === countryNames.length - 1) {
+  if (
+    countryIndex === countryNames.length - 1 ||
+    countryNames.length === 1 ||
+    countryNames.length === 0
+  ) {
   } else {
     countryIndex = countryIndex + 1;
     currCountry = countryNames[countryIndex];

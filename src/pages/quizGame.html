@@ -3,7 +3,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Learn the World</title>
+    <link rel="icon" href="/src/images/globeicon.png" type="image/x-icon" />
     <link rel="stylesheet" href="/src/scss/_quizGame.scss" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <header id="navbar-container">
@@ -24,6 +31,7 @@
       <div id="qg-game-control-header">Select a continent</div>
       <div id="qg-game-control-dropdown-container">
         <select id="qg-game-control-dropdown">
+          <option disabled selected>Select</option>
           <option class="continentDropdownOptions" value="NA">
             North America
           </option>
@@ -50,16 +58,17 @@
       <div class="" id="qg-game-alert">SKIPPED</div>
       <div id="qg-game-score-container">
         <div id="qg-game-score-correct-container">
-          <div id="qg-game-score-correct-title">Correct:</div>
+          <div id="qg-game-score-correct-title">Correct:&nbsp;</div>
           <div id="qg-game-score-correct-num">err</div>
         </div>
         <div id="qg-game-score-total-container">
-          <div id="qg-game-score-total-title">Out of:</div>
+          <div id="qg-game-score-total-title">Out of:&nbsp;</div>
           <div id="qg-game-score-total-num">err</div>
         </div>
         <button id="qg-game-restart-button">Restart</button>
       </div>
     </div>
+    <div class="hidden" id="qg-timer-container">00:00</div>
     <div id="qg-map-page-container">
       <div id="qg-map-container">
         <!--       fill="#ececec"

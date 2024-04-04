@@ -3,6 +3,7 @@
 }
 
 #landingPage-body {
+  font-family: "Poppins", sans-serif;
   box-sizing: border-box;
   padding: 0;
   margin: 0;
@@ -135,11 +136,13 @@
   height: auto;
 }
 #landingPage-sign-in-welcome {
+  font-family: "Poppins", sans-serif;
   font-size: 6em;
   padding-bottom: 2.5rem;
 }
 
 #landingPage-sign-in-button {
+  font-family: "Poppins", sans-serif;
   font-size: 2rem;
   padding: 1rem;
   color: white;
@@ -165,6 +168,7 @@
 
 #landingPage-sign-in-username-field,
 #landingPage-sign-in-password-field {
+  font-family: "Poppins", sans-serif;
   border-radius: 20rem;
   height: 3.5rem;
   width: 25rem;
@@ -183,6 +187,7 @@
   border-radius: 20rem;
 }
 #landingPage-sign-in-enter {
+  font-family: "Poppins", sans-serif;
   color: white;
   text-align: center;
   font-size: 2.5em;
