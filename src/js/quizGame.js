@@ -297,6 +297,7 @@ startButton.addEventListener("click", function () {
 });
 
 let originalTotal = 0;
+
 dropdownSelector.addEventListener("click", function () {
   const selectedOption =
     dropdownSelector.options[dropdownSelector.selectedIndex].value;
