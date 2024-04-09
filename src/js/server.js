@@ -1,5 +1,5 @@
 // server.js
-const express = require("express");
+/* const express = require("express");
 const fetch = require("node-fetch");
 const cors = require("cors");
 
@@ -39,4 +39,4 @@ app.use("/api", async (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`Proxy server is running on http://localhost:${PORT}`);
-});
+}); */
