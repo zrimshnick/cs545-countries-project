@@ -26,7 +26,7 @@
   align-items: center;
   justify-content: center;
   //background-color: red;
-  background-image: url("src/images/worldBackground2.png");
+  background-image: url("../images/worldBackground2.png");
   background-size: 400vw auto;
   position: relative;
   background-position: 0%;
@@ -61,7 +61,7 @@
   transform: translate(-50%, -50%);
   width: 300px;
   height: 300px;
-  background: url("src/images/worldBackground.png");
+  background: url("../images/worldBackground.png");
   //background-color: #212121;
   background-color: rgb(55, 55, 237);
   background-size: cover;
