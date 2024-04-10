@@ -1,11 +1,10 @@
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Learn the World</title>
-    <link rel="icon" href="src/images/globeicon.png" type="image/x-icon" />
-    <link rel="stylesheet" href="src/scss/style.css" />
+    <title>Learn the World | Sign in</title>
+    <link rel="icon" href="/src/images/globeicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="/src/scss/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -13,30 +12,64 @@
       rel="stylesheet"
     />
   </head>
-  <body>
-    <header id="navbar-container">
-      <div id="navbar-title">Learn the World!</div>
-      <nav id="navbar-links-container">
-        <a href="landingPage.html">
-          <button class="featuresButtons">Home</button>
-        </a>
-        <a href="src/pages/map.html">
-          <button class="featuresButtons">Interactive Mapp</button>
-        </a>
-        <a href="src/pages/quizGame.html">
-          <button class="featuresButtons">Quiz Game</button>
-        </a>
-      </nav>
-    </header>
-    <div id="welcome-message-container">
-      <h1 id="welcome-message-title">Welcome to Learn the World!</h1>
-      <p id="welcome-message">
-        Check out our interactive map, to learn fun facts about the countries of
-        the world, or try our quiz game to see how many nations you can spot on
-        the map!
-      </p>
+  <body id="landingPage-body">
+    <div id="landingPage-container">
+      <!-- <section id="earth-container">
+        <div class="earth"></div>
+        <div class="earth-circle">
+          <span style="--i: 1">W</span>
+          <span style="--i: 2">e</span>
+          <span style="--i: 3">l</span>
+          <span style="--i: 4">c</span>
+          <span style="--i: 5">o</span>
+          <span style="--i: 6">m</span>
+          <span style="--i: 7">e</span>
+          <span style="--i: 8">&nbsp;</span>
+          <span style="--i: 9">t</span>
+          <span style="--i: 10">o</span>
+          <span style="--i: 11">&nbsp;</span>
+          <span style="--i: 12">L</span>
+          <span style="--i: 13">e</span>
+          <span style="--i: 14">a</span>
+          <span style="--i: 15">r</span>
+          <span style="--i: 16">n</span>
+          <span style="--i: 17">&nbsp;</span>
+          <span style="--i: 18">t</span>
+          <span style="--i: 19">h</span>
+          <span style="--i: 20">e</span>
+          <span style="--i: 21">&nbsp;</span>
+          <span style="--i: 22">W</span>
+          <span style="--i: 23">o</span>
+          <span style="--i: 24">r</span>
+          <span style="--i: 25">l</span>
+          <span style="--i: 26">d</span>
+          <span style="--i: 27">!</span>
+          <span style="--i: 28">&nbsp;</span>
+        </div>
+      </section> -->
+      <div id="landingPage-sign-in-container">
+        <div id="landingPage-sign-in-welcome">Learn the World!</div>
+        <button id="landingPage-sign-in-button">Sign in</button>
+        <div class="hidden" id="landingPage-sign-in-username">
+          <input
+            type="text"
+            placeholder="Username"
+            id="landingPage-sign-in-username-field"
+            class=""
+          />
+        </div>
+        <div class="hidden" id="landingPage-sign-in-password">
+          <input
+            type="password"
+            placeholder="Password"
+            id="landingPage-sign-in-password-field"
+            class=""
+          />
+        </div>
+        <button class="hidden" id="landingPage-sign-in-enter">Sign Inn</button>
+      </div>
     </div>
 
-    <script type="module" src="src/js/index.js"></script>
+    <script type="module" src="/src/js/landingPage.js"></script>
   </body>
 </html>

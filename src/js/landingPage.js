@@ -24,7 +24,7 @@ signInEnter.addEventListener("click", () => {
   console.log(userNameVal.value);
   console.log(passwordVal.value);
   if (userNameVal.value === "user1" && passwordVal.value === "pwd") {
-    window.location.href = "/src/pages/index.html";
+    window.location.href = "/src/pages/home.html";
   } else {
     console.log("username or password wrong");
     userNameVal.classList.add("passwordWrong");
